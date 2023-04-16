@@ -7,6 +7,7 @@ This is a solution to the Vinted Backend Homework Assignment. This program can b
 		1.2.2 Here is the input.txt file which can be edited with the newest/needed data
 	1.3 Run the program using '**dotnet ShippingCosts.dll**' command
 	1.4 See the results in the terminal
+![This is what results in terminal could look like](https://github.com/belousovakarolina/Vinted_task/blob/master/running_the_program.png)
 ##2. Slow (convenient when there are some changes to make)##
 	2.1 Open the solution in code editor (for example, Visual Studio)
 	2.2 Do some changes if necessary (for example, change input file name, input file contents or the rules)
