@@ -16,7 +16,8 @@ namespace ShippingCosts
         /// <param name="size">The size of the parcel</param>
         /// <param name="prices">A list of all prices</param>
         /// <returns>Price of sending specific parcel</returns>
-        public static decimal GetPrice(string courier, string size, List<Tuple<string, string, decimal>> prices)
+        public static decimal GetPrice(string courier, string size, 
+            List<Tuple<string, string, decimal>> prices)
         {
             foreach (Tuple<string, string, decimal> price in prices)
             {
@@ -32,7 +33,8 @@ namespace ShippingCosts
         /// <param name="availableCouriers">The list of available couriers</param>
         /// <param name="prices">The list of all prices</param>
         /// <returns>A lowest price of sending a parcel with specified size</returns>
-        public static decimal GetLowestPrice(string size, List<string> availableCouriers, List<Tuple<string, string, decimal>> prices)
+        public static decimal GetLowestPrice(string size, List<string> availableCouriers, 
+            List<Tuple<string, string, decimal>> prices)
         {
             decimal price = decimal.MaxValue;
             foreach (string courier in availableCouriers)
@@ -99,7 +101,8 @@ namespace ShippingCosts
                         budgetLeft = 0m;
                     }
                 }
-                else if (shipment.Size.Equals(shipmentFreeSize) && shipment.Courier.Equals(shipmentFreeCourier) && budgetLeft > 0)
+                else if (shipment.Size.Equals(shipmentFreeSize) && shipment.Courier.Equals(shipmentFreeCourier) 
+                    && budgetLeft > 0)
                 {//Rule No. 2: The third L shipment via LP should be free, but only once a calendar month.
                     if (freeShipmentLeft == 1) //this one is third, thus has to be free
                     {

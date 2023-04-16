@@ -15,7 +15,8 @@ namespace ShippingCosts
         /// <param name="availableSizes">list of available parcel sizes. Needed for data validation</param>
         /// <param name="availableCouriers">list of available couriers. Needed for data validation</param>
         /// <returns>A list of shipments</returns>
-        public static List<Shipment> ReadData(string path, List<string> availableSizes, List<string> availableCouriers)
+        public static List<Shipment> ReadData(string path, List<string> availableSizes, 
+            List<string> availableCouriers)
         {
             List<Shipment> shipments = new();
             string[] lines = File.ReadAllLines(path);

@@ -42,7 +42,8 @@ namespace ShippingCosts
                 return string.Format(Data + " Ignored");
             else if (Decimal.Equals(Discount, 0m))
                 return string.Format(Date.ToString("yyyy-MM-dd") + " " + Size + " " + Courier + " " + Price.ToString("F") + " -");
-            return string.Format(Date.ToString("yyyy-MM-dd") + " " + Size + " " + Courier + " " + Price.ToString("F") + " " + Discount.ToString("F"));
+            return string.Format(Date.ToString("yyyy-MM-dd") + " " + Size + " " + Courier + " " + 
+                Price.ToString("F") + " " + Discount.ToString("F"));
         }
     }
 }
