@@ -24,7 +24,7 @@ class Program
         List<string> AvailableSizes = Prices.Select(d => d.Item2).ToList();
 
         List<Shipment> AllShipments = InputOutput.ReadData(@"input.txt", AvailableSizes, AvailableCouriers);
-        AllShipments.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
+        //AllShipments.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
         AllShipments = Calculations.SetPrices(AllShipments, "S", 10m, 3, "LP", "L", AvailableCouriers, Prices);
         InputOutput.PrintData(AllShipments);
     }
