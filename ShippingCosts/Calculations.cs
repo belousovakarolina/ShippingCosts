@@ -40,16 +40,18 @@ namespace ShippingCosts
             foreach (string courier in availableCouriers)
             {
                 decimal courierPrice = GetPrice(courier, size, prices);
-                if (courierPrice < price)
+                if (courierPrice < price && courierPrice != -1)
                     price = courierPrice;
             }
             return price;
         }
         /// <summary>
         /// Sets the prices for shipments according to the rules
-        /// Rule No. 1: All S shipments should always match the lowest S package price among the providers.
-        /// Rule No. 2: The third L shipment via LP should be free, but only once a calendar month.
-        /// Rule No. 3: Accumulated discounts cannot exceed 10 € in a calendar month. If there are not enough 
+        /// Rule No. 1: All "sizeLowestPrice" shipments should always match the lowest "sizeLowestPrice" package 
+        /// price among the providers.
+        /// Rule No. 2: The "whichShipmentFree" "shipmentFreeSize" shipment via "shipmentFreeCourier" should be free, 
+        /// but only once a calendar month.
+        /// Rule No. 3: Accumulated discounts cannot exceed "monthlyBudget" in a calendar month. If there are not enough 
         /// funds to fully cover a discount this calendar month, it should be covered partially.
         /// </summary>
         /// <param name="shipments">the list of all shipments</param>
@@ -86,7 +88,8 @@ namespace ShippingCosts
                 }
 
                 if (shipment.Size.Equals(sizeLowestPrice) && price != lowestPrice && budgetLeft > 0)
-                {//Rule No. 1: All S shipments should always match the lowest S package price among the providers.
+                {//Rule No. 1: All "sizeLowestPrice" shipments should always match the lowest "sizeLowestPrice" package 
+                 //price among the providers.
                     decimal discount = price - lowestPrice;
                     if (budgetLeft > discount)
                     {
@@ -103,7 +106,8 @@ namespace ShippingCosts
                 }
                 else if (shipment.Size.Equals(shipmentFreeSize) && shipment.Courier.Equals(shipmentFreeCourier) 
                     && budgetLeft > 0)
-                {//Rule No. 2: The third L shipment via LP should be free, but only once a calendar month.
+                {//Rule No. 2: The "whichShipmentFree" "shipmentFreeSize" shipment via "shipmentFreeCourier" should be free, 
+                 //but only once a calendar month.
                     if (freeShipmentLeft == 1) //this one is third, thus has to be free
                     {
                         if (budgetLeft > price)
