@@ -1,5 +1,5 @@
-# Vinted Backend Homework Assignment  
-This is a solution to the Vinted Backend Homework Assignment. This program can be run two ways:  
+# Backend Homework Assignment  
+This is a solution to a Backend Homework Assignment. This program can be run two ways:  
 1. Fast (useful for running the program and seeing the results when no changes to the program need to be made)  
 	1.1 Open terminal  
 	1.2 Change directory to ./ShippingCosts/ShippingCosts/bin/Debug/net6.0  
